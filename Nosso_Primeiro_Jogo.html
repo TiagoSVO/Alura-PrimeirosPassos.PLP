@@ -1,0 +1,39 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script type="text/javascript">
+    var tela = document.getElementById("tela");
+    var c = tela.getContext("2d");
+
+    c.fillStyle = "gray";
+    c.fillRect(0,0,600,400);
+
+    var atiraAzul = function(evento){
+        evento.preventDefault();
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        c.fillStyle = "blue";
+        c.beginPath();
+        c.arc(x,y,10,0,2*Math.PI);
+        c.fill();
+
+        console.log("Posição do clique: " + x + ", " + y);
+    }
+
+    var atiraVermelho = function(evento){
+        evento.preventDefault();
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        c.fillStyle = "red";
+        c.beginPath();
+        c.arc(x,y,10,0,2*Math.PI);
+        c.fill();
+
+        console.log("Posição do clique: " + x + ", " + y);
+    }
+
+    tela.onclick = atiraAzul;
+    tela.oncontextmenu = atiraVermelho;
+
+</script>
